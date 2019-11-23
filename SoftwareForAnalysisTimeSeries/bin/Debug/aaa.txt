@@ -1,0 +1,9 @@
+C:\Users\Andrey\Desktop\11.xlsx
+A
+B
+1
+1
+7
+Red
+qw
+true

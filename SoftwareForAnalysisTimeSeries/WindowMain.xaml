@@ -1,0 +1,49 @@
+﻿<Window x:Class="SoftwareForAnalysisTimeSeries.WindowMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SoftwareForAnalysisTimeSeries"
+        mc:Ignorable="d"
+        Title="Анализ временных рядов" Height="600" Width="800" ResizeMode="NoResize" Background="#f7fffb">
+	<Grid>
+		<Grid Margin="10,321,514,127">
+			<Grid.RowDefinitions>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="130"></ColumnDefinition>
+				<ColumnDefinition Width="130"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+
+			<Button Style="{StaticResource ButtonMainStyle}" Content="Добавить" HorizontalAlignment="Left" Click="ButtonAddNew_Click" Grid.Column="0" Grid.Row="0" />
+			<Button Style="{StaticResource ButtonMainStyle}" Content="Удалить" HorizontalAlignment="Left" Click="ButtonDeleteSelectedRow" Grid.Column="1" Grid.Row="0" Width="120"/>
+			<Button Style="{StaticResource ButtonMainStyle}" Content="Сохранить" x:Name="ButtonSaveTimeSeries" HorizontalAlignment="Left" Click="ButtonSaveTimeSeries_Click" Grid.Column="0" Grid.Row="1"/>
+			<Button Style="{StaticResource ButtonMainStyle}" Content="Обновить" HorizontalAlignment="Left" Click="ButtonUpdate_Click" Grid.Column="1" Grid.Row="1"/>
+
+		</Grid>
+
+
+
+		<Grid Margin="0,0,400,300">
+			<DataGrid x:Name="TableTimeSeries" AutoGenerateColumns="False" IsReadOnly="True" MouseDown="TableTimeSeries_MouseDown">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="Название" Binding="{Binding Path=Name}" ></DataGridTextColumn>
+					<DataGridTextColumn Header="Размер" Binding="{Binding Path=Count}" ></DataGridTextColumn>
+					<DataGridTextColumn Header="Max" Binding="{Binding Path=Max}" ></DataGridTextColumn>
+					<DataGridTextColumn Header="Min" Binding="{Binding Path=Min}" ></DataGridTextColumn>
+					<DataGridTextColumn Header="Avg" Binding="{Binding Path=Avg}" ></DataGridTextColumn>
+					<DataGridTextColumn Header="σ" Binding="{Binding Path=AvgSquareDeviation}" ></DataGridTextColumn>
+				</DataGrid.Columns>
+			</DataGrid>
+		</Grid>
+
+		<Frame HorizontalAlignment="Left" Height="450" Margin="442,29,0,0" VerticalAlignment="Top" Width="300" x:Name="Frame" NavigationUIVisibility="Hidden"/>
+		<TextBox HorizontalAlignment="Left" Height="23" Margin="144,281,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" x:Name="test_1" IsReadOnly="True"/>
+		<Button Style="{StaticResource ButtonStyleSelectedPage}" Content="Период" HorizontalAlignment="Left" Margin="312,303,0,0" VerticalAlignment="Top" Width="82" Height="82" x:Name="ButtonStudyOfPeriodicity" Click="ButtonStudyOfPeriodicity_Click"/>
+		<Button Style="{StaticResource ButtonStyleSelectedPage}" Content="Вид" HorizontalAlignment="Left" Margin="312,385,0,0" VerticalAlignment="Top" Width="82" Height="82" x:Name="ButtonVisualPresentation" Click="ButtonVisualPresentation_Click"/>
+		<Button Style="{StaticResource ButtonStyleSelectedPage}" Content="Прогноз" HorizontalAlignment="Left" Margin="312,467,0,0" VerticalAlignment="Top" Width="82" Height="82" x:Name="ButtonPredict" Click="ButtonPredict_Click"/>
+		<TextBlock HorizontalAlignment="Left" Margin="10,290,0,0" TextWrapping="Wrap" Text="Выбранный ряд" VerticalAlignment="Top" />
+	</Grid>
+</Window>

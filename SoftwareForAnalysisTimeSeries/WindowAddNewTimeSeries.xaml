@@ -1,0 +1,150 @@
+﻿<Window x:Class="SoftwareForAnalysisTimeSeries.WindowAddNewTimeSeries"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SoftwareForAnalysisTimeSeries"
+        mc:Ignorable="d"
+        Title="Меню добавления данных" Height="465" Width="315" Background="#f7fffb" ResizeMode="NoResize" Icon="Images/menu.png">
+	<Window.Resources>
+		<Style TargetType="TextBox">
+			<Setter Property="Height" Value="30" />
+			<Setter Property="Width" Value="60" />
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="Background" Value="#c4ffe6" />
+			<Setter Property="BorderBrush" Value="#3fabff" />
+		</Style>
+		<Style x:Key="SelectOptionsForTextBlock">
+			<Setter Property="Control.FontSize" Value="16" />
+		</Style>
+
+		<Style TargetType="TextBlock" >
+			<Setter Property="Margin" Value="0,6,0,6"/>
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
+			<Setter Property="LineHeight" Value="14" />
+		</Style>
+		<Style TargetType="Button">
+			<Setter Property="OverridesDefaultStyle" Value="False"/>
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Border x:Name="buttonBorder" CornerRadius="5"								
+								BorderThickness="{TemplateBinding BorderThickness}"
+								Height="30"
+								Width="120" >
+							<ContentControl Margin="{TemplateBinding Padding}"
+									HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+									VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+									Content="{TemplateBinding Content}" />
+							<Border.BorderBrush>
+								<LinearGradientBrush>
+									<GradientStopCollection>
+										<GradientStop Offset="0" Color="#6bbeff"></GradientStop>
+										<GradientStop Offset="1" Color="#3fabff"></GradientStop>
+									</GradientStopCollection>
+								</LinearGradientBrush>
+							</Border.BorderBrush>
+							<Border.Background>
+								<LinearGradientBrush>
+									<GradientStopCollection>
+										<GradientStop Offset="0" Color="#72ffb8"></GradientStop>
+										<GradientStop Offset="1" Color="#16cc71"></GradientStop>
+									</GradientStopCollection>
+								</LinearGradientBrush>
+							</Border.Background>
+						</Border>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsMouseOver" Value="true">
+								<Setter TargetName="buttonBorder" Property="Background" Value="#fff7fa" />
+							</Trigger>
+							<Trigger Property="IsPressed" Value="true">
+								<Setter TargetName="buttonBorder" Property="Background" Value="#dbc5cd" />
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Window.Resources>
+	<Grid Margin="0,0,0,0">
+		<TextBox Name="TextBoxNotFoundFile" HorizontalAlignment="Left" Height="30" Margin="10,34,0,0" TextWrapping="Wrap" Text="Файл не выбран" VerticalAlignment="Top" Width="155" IsReadOnly="True"/>
+		<CheckBox Name="Checked_flag_simplified_date" Style="{StaticResource SelectOptionsForTextBlock}" Content="Упрощенная дата" HorizontalAlignment="Left" Margin="10,359,0,0" VerticalAlignment="Top" Height="25" Width="150">
+			<CheckBox.ToolTip>
+				<ToolTip>
+					Датой являются целые неотрицательные числа
+				</ToolTip>
+			</CheckBox.ToolTip>
+		</CheckBox>
+		<Grid Style="{StaticResource SelectOptionsForTextBlock}" HorizontalAlignment="Left" Height="240" Margin="10,69,0,0" VerticalAlignment="Top" Width="280" Name="SelectOptions" RenderTransformOrigin="0.631,0.635" >
+			<Grid.RowDefinitions>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="200"></ColumnDefinition>
+				<ColumnDefinition Width="80"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+
+			<TextBlock Grid.Column="0" Grid.Row="0" Text="Введите название столбца с значениями ряда" TextWrapping="Wrap" />
+			<TextBox Name="Checked_name_column_value" Grid.Column="1" Grid.Row="0"  />
+			<TextBlock Grid.Column="0" Grid.Row="1" Text="Введите название столбца с значениями даты" TextWrapping="Wrap" />
+			<TextBox Name="Checked_name_column_time" Grid.Column="1" Grid.Row="1"  />
+			<TextBlock Grid.Column="0" Grid.Row="2" Text="Введите номер нужного листа в Excel" TextWrapping="Wrap" />
+			<TextBox Name="Checked_number_list" Grid.Column="1" Grid.Row="2"  />
+			<TextBlock Grid.Column="0" Grid.Row="3" Text="Введите номер строки с началом данных" TextWrapping="Wrap" />
+			<TextBox Name="Checked_number_line_start_information" Grid.Column="1" Grid.Row="3"  />
+			<TextBlock Grid.Column="0" Grid.Row="4" Text="Введите номер строки с окочание данных" TextWrapping="Wrap" />
+			<TextBox Name="Checked_number_line_end_information" Grid.Column="1" Grid.Row="4"  />
+			<TextBlock Grid.Column="0" Grid.Row="5" Text="Введите цвет для обозначения ряда" TextWrapping="Wrap" />
+			<TextBox Name="Checked_color_series" Grid.Column="1" Grid.Row="5"  />
+		</Grid>
+		<Button Name="SelectFile" Content="Выбрать файл" HorizontalAlignment="Left" Margin="170,35,0,0" VerticalAlignment="Top" Click="SelectFile_Click" />
+		<Button Name="FileProcessing" Content="Продолжить" HorizontalAlignment="Left" Margin="170,389,0,0" VerticalAlignment="Top" Click="FileProcessing_Click" />
+		<TextBlock HorizontalAlignment="Left" Margin="10,320,0,0" TextWrapping="Wrap" Text="Введите название ряда" VerticalAlignment="Top" Height="40" Width="140"/>
+		<TextBox HorizontalAlignment="Left" Height="40" Margin="170,314,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Name="NameSeries" />
+		<Menu HorizontalAlignment="Left" Height="26" Margin="0,0,0,0" VerticalAlignment="Top" Width="315" Style="{StaticResource SelectOptionsForTextBlock}" >
+			<Menu.Background>
+				<LinearGradientBrush>
+					<GradientStopCollection>
+						<GradientStop Offset="0" Color="#72ffb8"></GradientStop>
+						<GradientStop Offset="1" Color="#16cc71"></GradientStop>
+					</GradientStopCollection>
+				</LinearGradientBrush>
+			</Menu.Background>
+			<MenuItem Header="Меню" Width="80" >
+				<MenuItem Header="Выбор цвета" Background="#f7fffb" x:Name="MenuSelectedColor" Click="MenuSelectedColor_Click">
+					<MenuItem.Icon>
+						<Image Source="Images\1.png" Width="25" Height="25"></Image>
+					</MenuItem.Icon>
+				</MenuItem>
+				<MenuItem Header="Загрузить конфигурацию" Background="#f7fffb" Click="OpenConfiguration">
+					<MenuItem.Icon>
+						<Image Source="Images\3.png" Width="25" Height="25"></Image>
+					</MenuItem.Icon>
+				</MenuItem>
+				<MenuItem Header="Сохранить конфигурацию" Background="#f7fffb" Click="SaveConfiguration">
+					<MenuItem.Icon>
+						<Image Source="Images\2.png" Width="25" Height="25"></Image>
+					</MenuItem.Icon>
+				</MenuItem>
+			</MenuItem>
+		</Menu>
+
+
+
+
+
+
+
+
+
+
+	</Grid>
+</Window>

@@ -1,0 +1,26 @@
+﻿<Page x:Class="SoftwareForAnalysisTimeSeries.StudyOfPeriodicityTimeSeries"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SoftwareForAnalysisTimeSeries"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="300"
+      Title="StudyOfPeriodicityTimeSeries" Background="#fce5bd">
+
+	<Grid>
+		<TextBlock Text="Нормирование данных" Margin="20,19,114,406"/>
+		<CheckBox Content="нормирование по avg" Margin="20,50,77,372" x:Name="NormalizeOn_Avg"/>
+		<CheckBox Content="нормирование по σ" Margin="20,83,60,339" x:Name="NormalizeOn_σ"/>
+		<CheckBox Content="создать новый изменненный ряд" Margin="20,116,10,306" Checked="PermissionInputTextBox" Unchecked="NotPermissionInputTextBox" x:Name="NewTimeSeriesChecked"/>
+		<TextBox HorizontalAlignment="Left" Height="23" Margin="158,151,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" x:Name="TextBoxName"/>
+		<TextBox HorizontalAlignment="Left" Height="23" Margin="158,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" x:Name="TextBoxColor"/>
+		<TextBlock Text="Имя ряда" Margin="64,154,164,271"/>
+		<TextBlock Text="Цвет ряда" Margin="64,182,159,248"/>
+		<Button Style="{StaticResource ButtonStylePage}" Content="Выполнить" HorizontalAlignment="Left" Margin="20,225,0,0" VerticalAlignment="Top" Width="159" Height="33" Click="Button_Click_Normalize"/>
+		<TextBlock Text="Исследование переодичности:" Margin="20,285,48,140"/>
+		<Button Style="{StaticResource ButtonStylePage}" Content="Метод Автокорреляции" HorizontalAlignment="Left" Margin="20,326,0,0" VerticalAlignment="Top" Width="190" x:Name="ButtonAutocorrelation" Click="ButtonAutocorrelation_Click" Height="35"/>
+		<Button Style="{StaticResource ButtonStylePage}" Content="БПФ" HorizontalAlignment="Left" Margin="20,379,0,0" VerticalAlignment="Top" Width="190" x:Name="ButtonFFT" Click="ButtonFFT_Click" Height="35"/>
+
+	</Grid>
+</Page>

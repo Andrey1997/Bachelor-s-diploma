@@ -1,0 +1,19 @@
+﻿<Window x:Class="SoftwareForAnalysisTimeSeries.Page_VisualPresentation.WindowTableView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:SoftwareForAnalysisTimeSeries"
+        mc:Ignorable="d"
+        Title="Табличное представление" Height="450" Width="800" Icon="../Images/table.png" ResizeMode="NoResize">
+    <Grid>
+		<ListView Name="Info_" >
+			<ListView.View>
+				<GridView>
+					<GridViewColumn DisplayMemberBinding="{Binding Value}">Значение</GridViewColumn>
+					<GridViewColumn DisplayMemberBinding="{Binding Time}">Время</GridViewColumn>
+				</GridView>
+			</ListView.View>
+		</ListView>
+	</Grid>
+</Window>

@@ -1,0 +1,39 @@
+﻿<Page x:Class="SoftwareForAnalysisTimeSeries.PredictTimeSeries"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SoftwareForAnalysisTimeSeries"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="300"
+      Title="PredictTimeSeries" Background="#fce5bd">
+
+	<Grid>
+		<Button Style="{StaticResource ButtonStylePage}" HorizontalAlignment="Left" Margin="32,71,0,0" VerticalAlignment="Top" Width="247" Height="50" x:Name="ButtonExponentialSmoothingMethod" Click="ButtonExponentialSmoothingMethod_Click">
+			<TextBlock>Метод<LineBreak/>экспоненциального сглаживания</TextBlock>
+		</Button>
+		<Button Style="{StaticResource ButtonStylePage}" HorizontalAlignment="Left" Margin="101,212,0,0" VerticalAlignment="Top" Width="178" Height="50" x:Name="ButtonMovingAverageMethod" Click="ButtonMovingAverageMethod_Click">
+			<TextBlock>Метод<LineBreak/>скользящего среднего</TextBlock>
+		</Button>
+		<TextBox HorizontalAlignment="Left" Height="23" Margin="229,136,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50" x:Name="SmoothingInterval"/>
+		<TextBlock HorizontalAlignment="Left" Margin="55,145,0,0" TextWrapping="Wrap" Text="Интервал сглаживания" VerticalAlignment="Top"/>
+		<Button Style="{StaticResource ButtonStylePage}" HorizontalAlignment="Left" Margin="101,383,0,0" VerticalAlignment="Top" Width="189" Height="57" x:Name="ButtonMethodLeastSquares" Click="ButtonMethodLeastSquares_Click">
+			<TextBlock>Метод<LineBreak/>наименьших квадратов</TextBlock>
+		</Button>
+		<TextBlock HorizontalAlignment="Left" Margin="32,183,0,0" TextWrapping="Wrap" Text="Количество предсказаний" VerticalAlignment="Top"/>
+		<TextBox HorizontalAlignment="Left" Height="23" Margin="229,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50" x:Name="QuantityPredict"/>
+		<TextBlock HorizontalAlignment="Left" Margin="32,321,0,0" TextWrapping="Wrap" Text="Количество предсказаний" VerticalAlignment="Top"/>
+		<TextBox HorizontalAlignment="Left" Height="23" Margin="229,312,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50" x:Name="QuantityPredictLeastSquares"/>
+		<CheckBox Content="Тип кривой" HorizontalAlignment="Left" Margin="177,349,0,0" VerticalAlignment="Top" x:Name="TypeMethodLeastSquares">
+			<CheckBox.ToolTip>
+				<ToolTip>
+					True Линейная функция False Квадратичная функция
+				</ToolTip>
+			</CheckBox.ToolTip>
+		</CheckBox>
+		<TextBlock Text="Прогнозирование данных:" Margin="20,19,21,406"/>
+		<TextBox HorizontalAlignment="Left" Height="23" Margin="229,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50" x:Name="SmoothingIntervalExp"/>
+		<TextBlock HorizontalAlignment="Left" Margin="55,49,0,0" TextWrapping="Wrap" Text="Параметр сглаживания" VerticalAlignment="Top"/>
+
+	</Grid>
+</Page>
